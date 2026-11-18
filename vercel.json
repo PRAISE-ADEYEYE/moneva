@@ -1,0 +1,52 @@
+{
+ "cleanUrls": true,
+ "trailingSlash": true,
+ "redirects": [
+  {
+   "source": "/login",
+   "destination": "/auth/login/",
+   "permanent": false
+  },
+  {
+   "source": "/signup",
+   "destination": "/auth/signup/",
+   "permanent": false
+  }
+ ],
+ "headers": [
+  {
+   "source": "/sw.js",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "no-cache"
+    },
+    {
+     "key": "Service-Worker-Allowed",
+     "value": "/"
+    }
+   ]
+  },
+  {
+   "source": "/(.*)",
+   "headers": [
+    {
+     "key": "X-Content-Type-Options",
+     "value": "nosniff"
+    },
+    {
+     "key": "X-Frame-Options",
+     "value": "DENY"
+    },
+    {
+     "key": "Referrer-Policy",
+     "value": "strict-origin-when-cross-origin"
+    },
+    {
+     "key": "Permissions-Policy",
+     "value": "camera=(), microphone=(), geolocation=()"
+    }
+   ]
+  }
+ ]
+}
