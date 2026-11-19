@@ -6,9 +6,8 @@ Moneva is a multilingual payments app for local traders and small businesses in 
 
 Built for the CU Next Gen Hackathon, Track 2: Inclusive Payments and Financial Access. It uses the Interledger Open Payments API on the Interledger test network. No real money moves.
 
-**Team:** [REPLACE: team name and members]
-**Live prototype:** [REPLACE: Vercel address]
-**Demo video:** [REPLACE: video link]
+
+**Live prototype:** https://moneva-pay.vercel.app
 
 ## The problem
 
