@@ -1,12 +1,24 @@
 {
+ "id": "/dashboard/",
  "name": "Moneva",
  "short_name": "Moneva",
- "description": "Multilingual payments for everyone",
- "start_url": "/dashboard/",
+ "description": "Pay and get paid in your language, on WhatsApp or the app.",
+ "start_url": "/dashboard/?source=pwa",
  "scope": "/",
  "display": "standalone",
- "background_color": "#F4F7FF",
- "theme_color": "#1F5EFF",
+ "display_override": [
+  "standalone",
+  "minimal-ui"
+ ],
+ "orientation": "portrait",
+ "background_color": "#FFFFFF",
+ "theme_color": "#FFFFFF",
+ "lang": "en",
+ "dir": "ltr",
+ "categories": [
+  "finance",
+  "business"
+ ],
  "icons": [
   {
    "src": "/icons/icon-192.png",
@@ -25,6 +37,30 @@
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Send money",
+   "short_name": "Send",
+   "url": "/dashboard/#send",
+   "icons": [
+    {
+     "src": "/icons/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Receive money",
+   "short_name": "Receive",
+   "url": "/dashboard/#recv",
+   "icons": [
+    {
+     "src": "/icons/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
   }
  ]
 }
