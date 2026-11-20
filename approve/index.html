@@ -1,0 +1,235 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><title>Moneva | Approve</title><link rel="manifest" href="/manifest.json"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 42' aria-hidden='true'%3E%3Cdefs%3E%3Cmask id='f'%3E%3Crect width='40' height='42' fill='white'/%3E%3Cpath d='M10 10h12a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H13.6l-5.5 4.3c-.8.6-1.9 0-1.9-1V35A8 8 0 0 1 2 28V18a8 8 0 0 1 8-8z' fill='black' stroke='black' stroke-width='5' stroke-linejoin='round'/%3E%3C/mask%3E%3C/defs%3E%3Cpath d='M22 2h8a8 8 0 0 1 8 8v7a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8v-7a8 8 0 0 1 8-8z' fill='%239DB8FF' mask='url%28%23f%29'/%3E%3Cpath d='M10 10h12a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H13.6l-5.5 4.3c-.8.6-1.9 0-1.9-1V35A8 8 0 0 1 2 28V18a8 8 0 0 1 8-8z' fill='%231F5EFF'/%3E%3Cpath d='M10 28V18.6l6 6.4 6-6.4V28' fill='none' stroke='%23fff' stroke-width='3.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Moneva"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="mobile-web-app-capable" content="yes"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>/* Moneva design system: shared by every page */
+*,*:before,*:after{box-sizing:border-box;margin:0}
+:root{--ink:#0A0F1C;--ink2:#3A4353;--mut:#687182;--bg:#fff;--bg2:#F7F8FA;--ln:#E5E7EB;--ln2:#F0F1F3;--blue:#1F5EFF;--blued:#1849D6;--tint:#EEF3FF;--ok:#0D7A49;--okb:#E9F6EF;--wt:#9A5B00;--wtb:#FDF4E3;--er:#BF3329;--erb:#FCEDEC;--f:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--fd:'Inter Tight','Inter',system-ui,sans-serif;--r:14px}
+html{-webkit-text-size-adjust:100%}
+body{font:17px/1.55 var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}svg{display:block}img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--fd);font-weight:700;letter-spacing:-.022em;word-spacing:.05em;line-height:1.1}
+.hide{display:none!important}.sp{flex:1}.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
+/* logo */
+.logo{display:inline-flex;align-items:center;gap:9px;font:700 21px/1 var(--fd);letter-spacing:-.035em;color:var(--ink)}.logo svg{width:30px;height:auto;flex:none}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:10px;border:1px solid transparent;background:var(--blue);color:#fff;font:600 16.5px/1 var(--f);white-space:nowrap;transition:background-color .15s,border-color .15s,color .15s}
+.btn:hover{background:var(--blued)}
+.btn.dk{background:var(--ink)}.btn.dk:hover{background:#1F2533}
+.btn.ol{background:#fff;color:var(--ink);border-color:var(--ln)}.btn.ol:hover{background:var(--bg2);border-color:#D5D8DE}
+.btn.gh{background:transparent;color:var(--ink)}.btn.gh:hover{background:var(--ln2)}
+.btn.wt{background:#fff;color:var(--ink)}.btn.wt:hover{background:#EDEFF3}
+.btn.sm{height:36px;padding:0 13px;font-size:15.5px;border-radius:9px}
+.btn.lg{height:52px;padding:0 22px;font-size:17px;border-radius:12px}
+.btn.full{width:100%}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.busy{color:transparent!important;position:relative;pointer-events:none}
+.btn.busy:after{content:"";position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;animation:mvspin .7s linear infinite}
+.btn.ol.busy:after,.btn.gh.busy:after{border-color:rgba(10,15,28,.15);border-top-color:var(--ink)}
+@keyframes mvspin{to{transform:rotate(360deg)}}
+.link{color:var(--blue);font-weight:600}.link:hover{text-decoration:underline}
+/* form fields */
+.fld{display:block;margin-top:16px}.fld:first-child{margin-top:0}
+.fld>span{display:block;font-size:15.5px;font-weight:600;color:var(--ink2);margin-bottom:7px}
+.inp{display:flex;align-items:center;height:50px;border:1px solid var(--ln);border-radius:10px;background:#fff;transition:border-color .15s,box-shadow .15s;overflow:hidden}
+.inp:hover{border-color:#D1D5DB}
+.inp:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--tint)}
+.inp input{flex:1;min-width:0;height:100%;border:0;outline:0;background:transparent;padding:0 14px;font:17px var(--f);color:var(--ink)}
+.inp input::placeholder{color:#9AA1AD}
+.inp .pre{padding:0 0 0 14px;font-weight:600;color:var(--ink2);display:flex;align-items:center;gap:8px;height:100%}.inp .pre:after{content:"";width:1px;height:22px;background:var(--ln)}
+.inp .ib{width:44px;height:44px;margin-right:3px;display:grid;place-items:center;border-radius:8px;color:var(--mut)}.inp .ib:hover{background:var(--ln2);color:var(--ink)}.inp .ib svg{width:19px;height:19px}
+.fld.bad .inp{border-color:var(--er)}.fld.bad .inp:focus-within{box-shadow:0 0 0 3px var(--erb)}
+.fe,.fh{font-style:normal}.fe{display:none;color:var(--er);font-size:14.5px;margin-top:6px}.fld.bad .fe{display:block}
+.fh{color:var(--mut);font-size:14.5px;margin-top:6px}.fld.bad .fh{display:none}
+.msg{font-size:15.5px;border-radius:10px;padding:11px 13px;margin-top:14px}.msg:empty{display:none}.msg.er{background:var(--erb);color:var(--er)}.msg.ok{background:var(--okb);color:var(--ok)}.msg.in{background:var(--bg2);color:var(--ink2)}
+/* language menu */
+.lang{position:relative}
+.lb{display:flex;align-items:center;gap:7px;height:36px;padding:0 11px;border:1px solid var(--ln);border-radius:9px;background:#fff;font:600 15.5px var(--f)}.lb:hover{background:var(--bg2)}.lb svg{width:16px;height:16px}
+.lm{position:absolute;right:0;top:44px;width:280px;max-width:calc(100vw - 24px);background:#fff;border:1px solid var(--ln);border-radius:12px;padding:8px;box-shadow:0 12px 32px rgba(10,15,28,.12);z-index:60}
+.lm p{font-size:13px;font-weight:600;color:var(--mut);padding:6px 8px 8px}
+.lgr{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.lo{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;font:500 16.5px var(--f);text-align:left}.lo:hover{background:var(--bg2)}
+.lo i{width:16px;height:16px;border-radius:50%;border:1.5px solid #CBD0D8;flex:none}.lo.on{font-weight:600}.lo.on i{border:5px solid var(--blue)}
+/* chips */
+.chip{display:inline-flex;align-items:center;font-size:13px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--ln2);color:var(--ink2);white-space:nowrap}
+.chip.completed{background:var(--okb);color:var(--ok)}.chip.pending,.chip.awaiting{background:var(--wtb);color:var(--wt)}.chip.failed{background:var(--erb);color:var(--er)}
+/* toast */
+#tst{position:fixed;left:50%;bottom:24px;transform:translate(-50%,10px);background:var(--ink);color:#fff;padding:12px 16px;border-radius:10px;font-size:15.5px;font-weight:500;max-width:min(92vw,420px);text-align:center;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:90}
+#tst.on{opacity:1;transform:translate(-50%,0)}
+/* offline bar */
+#mvoff{position:fixed;left:0;right:0;top:0;z-index:95;background:var(--ink);color:#fff;font-size:14.5px;font-weight:500;text-align:center;padding:7px 12px}
+/* sheet: install prompt, update prompt */
+.sheet{position:fixed;z-index:80;right:20px;bottom:20px;width:380px;max-width:calc(100vw - 32px);background:#fff;border:1px solid var(--ln);border-radius:16px;padding:20px;box-shadow:0 20px 48px rgba(10,15,28,.16);animation:mvup .2s ease-out}
+@keyframes mvup{from{opacity:0;transform:translateY(12px)}}
+.sheet .sh-h{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.sheet .sh-i{width:44px;height:44px;border-radius:11px;background:var(--bg2);border:1px solid var(--ln);display:grid;place-items:center;flex:none}.sheet .sh-i svg{width:28px;height:auto}
+.sheet h3{font-size:18px;letter-spacing:-.015em}.sheet p{color:var(--mut);font-size:15.5px;line-height:1.5}
+.sheet .sh-r{display:flex;gap:8px;margin-top:16px}.sheet .sh-r .btn{flex:1}
+.sheet .sh-x{position:absolute;right:10px;top:10px;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:var(--mut)}.sheet .sh-x:hover{background:var(--ln2)}.sheet .sh-x svg{width:16px;height:16px}
+.sh-st{display:flex;align-items:center;gap:12px;padding:6px 0 2px}
+.sh-sp{width:22px;height:22px;border-radius:50%;border:2.5px solid var(--ln);border-top-color:var(--blue);animation:mvspin .8s linear infinite;flex:none}
+.sh-ok{width:26px;height:26px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;flex:none}.sh-ok svg{width:15px;height:15px}
+.sh-bar{height:4px;border-radius:4px;background:var(--ln2);overflow:hidden;margin-top:14px}.sh-bar i{display:block;height:100%;width:30%;background:var(--blue);border-radius:4px;animation:mvbar 1.4s ease-in-out infinite}
+@keyframes mvbar{0%{transform:translateX(-100%)}100%{transform:translateX(340%)}}
+.ios{display:grid;gap:8px;margin-top:12px;font-size:15.5px;color:var(--ink2)}.ios div{display:flex;align-items:center;gap:10px}.ios b{width:24px;height:24px;border-radius:50%;background:var(--bg2);border:1px solid var(--ln);display:grid;place-items:center;font-size:13px;flex:none}.ios svg{width:18px;height:18px;color:var(--blue);display:inline-block;vertical-align:-3px}
+/* modal */
+.mdl{position:fixed;inset:0;z-index:85;background:rgba(10,15,28,.45);display:flex;align-items:center;justify-content:center;padding:16px;animation:mvfd .15s ease-out}
+.md{background:#fff;border-radius:18px;width:100%;max-width:420px;max-height:90vh;overflow:auto;padding:24px;box-shadow:0 24px 56px rgba(10,15,28,.2);animation:mvup .18s ease-out}
+.md h3{font-size:21px;margin-bottom:6px}.md>p{color:var(--mut);font-size:16.5px;margin-bottom:12px}
+.md .mr{display:flex;gap:8px;margin-top:20px}.md .mr .btn{flex:1}
+@keyframes mvfd{from{opacity:0}}
+@media(max-width:560px){.sheet{right:12px;left:12px;bottom:12px;width:auto;max-width:none}.mdl{align-items:flex-end;padding:0}.md{border-radius:20px 20px 0 0;max-height:92vh;padding:22px 20px calc(22px + env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}body{background:var(--bg2);min-height:100vh}
+.ap{max-width:460px;margin:0 auto;padding:16px 16px 40px}
+.aph{display:flex;align-items:center;gap:8px;height:56px;margin-bottom:12px}
+.card{background:#fff;border:1px solid var(--ln);border-radius:18px;padding:24px;text-align:center}
+.card h1{font-size:24px;letter-spacing:-.025em;margin-bottom:6px}
+.hint{color:var(--mut);font-size:16px}
+.mdi{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px}.mdi svg{width:26px;height:26px}
+.mdi.ok{background:var(--okb);color:var(--ok)}.mdi.wt{background:var(--wtb);color:var(--wt)}.mdi.er{background:var(--erb);color:var(--er)}.mdi.lk{background:var(--tint);color:var(--blue)}
+.mdi.ld{background:var(--bg2)}.mdi.ld:after{content:"";width:24px;height:24px;border-radius:50%;border:2.5px solid var(--ln);border-top-color:var(--blue);animation:mvspin .8s linear infinite}
+.rv{text-align:left;margin-top:16px}.rv:empty{display:none}.rv .r{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--ln2);font-size:16px}.rv .r span{color:var(--mut)}.rv .r b{text-align:right;word-break:break-word;font-variant-numeric:tabular-nums}.rv .r.big b{font:700 24px var(--fd);letter-spacing:-.02em}
+.dots{display:flex;justify-content:center;gap:16px;margin:22px 0 6px}.dots i{width:16px;height:16px;border-radius:50%;border:2px solid #C3C8D0}.dots i.on{background:var(--ink);border-color:var(--ink)}.dots.wait i{opacity:.4}
+.pe{min-height:22px;color:var(--er);font-size:15px;font-weight:500;margin-top:4px}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:300px;margin:8px auto 0}
+.pk{height:60px;border-radius:14px;background:var(--bg2);font:600 24px var(--fd);display:grid;place-items:center}.pk:hover{background:var(--ln2)}.pk:active{background:var(--ln)}.pk.dl{background:none}.pk svg{width:24px;height:24px}
+.apf{text-align:center;color:var(--mut);font-size:13px;margin-top:18px}
+#apx .btn{margin-top:18px}
+</style></head><body data-noinstall><main class="ap"><div class="aph"><a class="logo" href="/" aria-label="Moneva"><svg viewBox="0 0 40 42" aria-hidden="true"><defs><mask id="mk8"><rect width="40" height="42" fill="white"/><path d="M10 10h12a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H13.6l-5.5 4.3c-.8.6-1.9 0-1.9-1V35A8 8 0 0 1 2 28V18a8 8 0 0 1 8-8z" fill="black" stroke="black" stroke-width="5" stroke-linejoin="round"/></mask></defs><path d="M22 2h8a8 8 0 0 1 8 8v7a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8v-7a8 8 0 0 1 8-8z" fill="#9DB8FF" mask="url(#mk8)"/><path d="M10 10h12a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H13.6l-5.5 4.3c-.8.6-1.9 0-1.9-1V35A8 8 0 0 1 2 28V18a8 8 0 0 1 8-8z" fill="#1F5EFF"/><path d="M10 28V18.6l6 6.4 6-6.4V28" fill="none" stroke="#fff" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Moneva</span></a><span class="sp"></span><div class="lang"></div></div>
+<div class="card" id="apc"><div class="mdi ld" id="api"></div><h1 id="aph" data-i="ap_h"></h1><p class="hint" id="apd" data-i="ap_d"></p><div class="rv" id="aprv"></div><div id="appad"></div><p class="pe" id="ape" role="alert"></p><div id="apx"></div></div>
+<p class="apf" data-i="about"></p></main><script>window.MV_I18N={"en":{"about":"Moneva runs on the Interledger Test Network. No real money moves.","ap_d":"Check the details, then enter your PIN.","ap_exp":"This link has expired. Ask the Moneva bot for a new one.","ap_h":"Approve payment","ap_nf":"This link is not valid.","ap_ok_wa":"All done. You can go back to WhatsApp now.","ap_pin_ok":"Your PIN is ready. Go back to WhatsApp to send money.","ap_used":"This link has already been used.","cancel":"Cancel","done":"Done","e_daily":"You have reached today’s limit.","e_gen":"Something went wrong. Try again.","e_insuf":"Your balance is not enough for this.","e_net":"Network problem. Check your connection and try again.","e_oplimit":"Interledger payouts are paused for now. Try again later.","e_quote":"The price changed. Please review it again.","e_rl":"Too many attempts. Wait a minute and try again.","hide":"Hide password","inst_d":"Add Moneva to your home screen. It opens fast and works with weak network.","inst_done":"Moneva is installed","inst_done_d":"Open it from your home screen any time.","inst_go":"Install","inst_ing":"Installing Moneva...","inst_t":"Install Moneva","later":"Not now","none":"No payments yet. Payments you send or receive will show here.","off":"You are offline. Showing saved screens.","ok":"OK","pick":"Select language","pin_conf":"Enter the same PIN again","pin_locked":"Too many wrong tries. Your PIN is locked for 30 minutes.","pin_mismatch":"The PINs do not match. Try again.","pin_set_d":"You will use these 4 digits to approve every payment. Never share them.","pin_set_h":"Create your transaction PIN","pin_weak":"Choose a PIN that is harder to guess.","pin_wrong":"Wrong PIN. {n} tries left.","r_fail":"Transfer failed","r_ok":"Transfer successful","r_proc":"Transfer processing","r_refund":"The money is back in your balance.","rv_acct":"Account","rv_amt":"Amount","rv_bank":"Bank","rv_fee":"Fee","rv_get":"They receive","rv_to":"To","rv_total":"Total","rv_wallet":"Wallet","st_1":"Recipient","st_2":"Amount","st_3":"Review","st_awaiting":"Waiting for approval","st_cancelled":"Cancelled","st_completed":"Completed","st_expired":"Expired","st_failed":"Failed","st_open":"Open","st_pending":"Pending","st_processing":"Processing","st_reversed":"Reversed","upd":"A new version is ready.","upd_b":"Update"},"yo":{"about":"Moneva ń ṣiṣẹ́ lórí Interledger Test Network. Kò sí owó gidi tó ń rìn.","ap_d":"Ṣàyẹ̀wò àlàyé, lẹ́yìn náà tẹ PIN rẹ.","ap_exp":"Ìjápọ̀ yìí ti parí. Béèrè òmíràn lọ́wọ́ bot Moneva.","ap_h":"Fọwọ́ sí ìsanwó","ap_nf":"Ìjápọ̀ yìí kò wúlò.","ap_ok_wa":"Ó ti parí. O lè padà sí WhatsApp báyìí.","ap_pin_ok":"PIN rẹ ti ṣetán. Padà sí WhatsApp láti fi owó ránṣẹ́.","ap_used":"A ti lo ìjápọ̀ yìí tẹ́lẹ̀.","cancel":"Fagilé","done":"Ó parí","e_daily":"O ti dé ààlà ti òní.","e_gen":"Nǹkan kan ṣẹlẹ̀. Tún gbìyànjú.","e_insuf":"Iye owó rẹ kò tó fún èyí.","e_net":"Ìṣòro nẹ́tíwọ́ọ̀kì. Ṣàyẹ̀wò ìsopọ̀ rẹ kí o tún gbìyànjú.","e_oplimit":"Ìsanwó jáde Interledger ti dúró fún ìgbà díẹ̀. Gbìyànjú nígbà míràn.","e_quote":"Iye owó ti yí padà. Jọ̀wọ́ ṣàyẹ̀wò lẹ́ẹ̀kansí.","e_rl":"Ìgbìyànjú pọ̀ jù. Dúró fún ìṣẹ́jú kan.","hide":"Fi ọ̀rọ̀ aṣínà pamọ́","inst_d":"Fi Moneva sí ojú-ìwé ilé rẹ. Ó ń ṣí kíákíá, ó sì ń ṣiṣẹ́ lórí nẹ́tíwọ́ọ̀kì tí kò lágbára.","inst_done":"A ti fi Moneva sórí ẹ̀rọ","inst_done_d":"Ṣí i láti ojú-ìwé ilé rẹ nígbàkúgbà.","inst_go":"Fi sórí ẹ̀rọ","inst_ing":"A ń fi Moneva sórí ẹ̀rọ...","inst_t":"Fi Moneva sori","later":"Kì í ṣe báyìí","none":"Kò tíì sí ìsanwó. Àwọn ìsanwó tí o fi ránṣẹ́ tàbí gbà yóò hàn níbí.","off":"O kò sí lórí íntánẹ́ẹ̀tì. A ń fi àwọn ojú-ìwé tí a fipamọ́ hàn.","ok":"Ó dára","pick":"Yan èdè","pin_conf":"Tún PIN kan náà tẹ̀","pin_locked":"Ìgbìyànjú àṣìṣe pọ̀ jù. PIN rẹ ti tì fún ìṣẹ́jú 30.","pin_mismatch":"Àwọn PIN kò bá ara wọn mu. Gbìyànjú lẹ́ẹ̀kansí.","pin_set_d":"Nọ́ńbà mẹ́rin yìí ni o máa fi fọwọ́ sí gbogbo ìsanwó. Má ṣe sọ fún ẹnikẹ́ni.","pin_set_h":"Ṣẹ̀dá PIN ìdúnàádúrà rẹ","pin_weak":"Yan PIN tó ṣòro láti mọ̀.","pin_wrong":"PIN kò tọ̀nà. Ìgbìyànjú {n} ló kù.","r_fail":"Ìfiránṣẹ́ kò lọ","r_ok":"Ìfiránṣẹ́ ti yọrí","r_proc":"Ìfiránṣẹ́ ń lọ lọ́wọ́","r_refund":"Owó náà ti padà sínú àkáǹtì rẹ.","rv_acct":"Àkáǹtì","rv_amt":"Iye","rv_bank":"Báǹkì","rv_fee":"Owó iṣẹ́","rv_get":"Wọn yóò gbà","rv_to":"Sí","rv_total":"Lápapọ̀","rv_wallet":"Wallet","st_1":"Olùgbà","st_2":"Iye owó","st_3":"Àyẹ̀wò","st_awaiting":"Ń dúró ìfọwọ́sí","st_cancelled":"A fagilé","st_completed":"Ti parí","st_expired":"Ó ti parí","st_failed":"Kùnà","st_open":"Ṣí sílẹ̀","st_pending":"Ń dúró","st_processing":"Ó ń lọ lọ́wọ́","st_reversed":"Ó ti padà","upd":"Ẹ̀yà tuntun ti wà.","upd_b":"Ṣe àtúnṣe"},"pcm":{"about":"Moneva dey run on top Interledger Test Network. No real money dey move.","ap_d":"Check the details, then put your PIN.","ap_exp":"This link don expire. Ask Moneva bot for new one.","ap_h":"Approve payment","ap_nf":"This link no correct.","ap_ok_wa":"E don finish. You fit go back to WhatsApp now.","ap_pin_ok":"Your PIN don ready. Go back to WhatsApp make you send money.","ap_used":"Somebody don use this link already.","cancel":"Cancel","done":"Done","e_daily":"You don reach today limit.","e_gen":"Something go wrong. Abeg try again.","e_insuf":"Your balance no reach for this one.","e_net":"Network wahala. Check your connection and try again.","e_oplimit":"Interledger payout don pause for now. Try again later.","e_quote":"The price don change. Abeg check am again.","e_rl":"You don try too many times. Wait one minute, then try again.","hide":"Hide password","inst_d":"Put Moneva for your home screen. E dey open fast and e dey work even when network weak.","inst_done":"Moneva don install","inst_done_d":"Open am from your home screen anytime.","inst_go":"Install","inst_ing":"We dey install Moneva...","inst_t":"Install Moneva","later":"Not now","none":"No payment yet. Payments wey you send or collect go show here.","off":"You no get network. We dey show saved screens.","ok":"OK","pick":"Choose language","pin_conf":"Put the same PIN again","pin_locked":"Too many wrong tries. Your PIN don lock for 30 minutes.","pin_mismatch":"The PINs no match. Try again.","pin_set_d":"Na these 4 numbers you go take approve every payment. No ever share am.","pin_set_h":"Create your transaction PIN","pin_weak":"Choose PIN wey hard to guess.","pin_wrong":"PIN no correct. {n} tries remain.","r_fail":"Transfer no go","r_ok":"Transfer don go","r_proc":"Transfer dey process","r_refund":"The money don return to your balance.","rv_acct":"Account","rv_amt":"Amount","rv_bank":"Bank","rv_fee":"Fee","rv_get":"Dem go receive","rv_to":"To","rv_total":"Total","rv_wallet":"Wallet","st_1":"Who go receive","st_2":"Amount","st_3":"Check am","st_awaiting":"Dey wait for approval","st_cancelled":"E don cancel","st_completed":"Done","st_expired":"E don expire","st_failed":"E no work","st_open":"Open","st_pending":"Dey wait","st_processing":"E dey process","st_reversed":"E don return","upd":"New version don ready.","upd_b":"Update"},"ig":{"about":"Moneva na-arụ ọrụ na Interledger Test Network. Ọ dịghị ezigbo ego na-agagharị.","ap_d":"Lelee nkọwa, wee tinye PIN gị.","ap_exp":"Njikọ a agwụla. Rịọ bot Moneva maka nke ọhụrụ.","ap_h":"Kwado ụgwọ","ap_nf":"Njikọ a ezighi ezi.","ap_ok_wa":"O mechaala. Ị nwere ike ịlaghachi na WhatsApp ugbu a.","ap_pin_ok":"PIN gị adịla njikere. Laghachi na WhatsApp iji ziga ego.","ap_used":"E jirila njikọ a mee ihe.","cancel":"Kagbuo","done":"Emechara","e_daily":"Ị ruola oke taa.","e_gen":"Ihe adịghị mma mere. Nwaa ọzọ.","e_insuf":"Ego gị ezughị maka nke a.","e_net":"Nsogbu netwọk. Lelee njikọ gị ma nwaa ọzọ.","e_oplimit":"A kwụsịrị nzipu Interledger nwa oge. Nwaa ọzọ ma emechaa.","e_quote":"Ọnụ ahịa agbanweela. Biko lelee ya ọzọ.","e_rl":"Mgbalị bụ ọtụtụ. Chere otu nkeji.","hide":"Zoo okwuntughe","inst_d":"Tinye Moneva na ihuenyo ụlọ gị. Ọ na-emepe ngwa ngwa ma na-arụ ọrụ ọbụna mgbe netwọk adịghị ike.","inst_done":"Awụnyela Moneva","inst_done_d":"Mepee ya site na ihuenyo ụlọ gị mgbe ọ bụla.","inst_go":"Wụnye","inst_ing":"Na-awụnye Moneva...","inst_t":"Wụnye Moneva","later":"Ọ bụghị ugbu a","none":"Enweghị ụgwọ ọ bụla ugbu a. Ụgwọ ị zipụrụ ma ọ bụ natara ga-apụta ebe a.","off":"Ị nọghị n’ịntanetị. Anyị na-egosi ihuenyo echekwara.","ok":"Ọ dị mma","pick":"Họrọ asụsụ","pin_conf":"Tinye otu PIN ahụ ọzọ","pin_locked":"Mgbalị ezighi ezi bụ ọtụtụ. Akpọchiri PIN gị maka nkeji 30.","pin_mismatch":"PIN abụọ ahụ adabaghị. Nwaa ọzọ.","pin_set_d":"Ị ga-eji ọnụọgụ anọ a kwado ụgwọ ọ bụla. Agwala onye ọ bụla.","pin_set_h":"Mepụta PIN azụmahịa gị","pin_weak":"Họrọ PIN siri ike ịkọ.","pin_wrong":"PIN ezighi ezi. Mgbalị {n} fọdụrụ.","r_fail":"Nzipu agaghị","r_ok":"Nzipu gara nke ọma","r_proc":"Nzipu na-aga","r_refund":"Ego ahụ alọghachila n’akaụntụ gị.","rv_acct":"Akaụntụ","rv_amt":"Ego","rv_bank":"Ụlọ akụ","rv_fee":"Ụgwọ ọrụ","rv_get":"Ha ga-anata","rv_to":"Nye","rv_total":"Nchịkọta","rv_wallet":"Wallet","st_1":"Onye nnata","st_2":"Ego","st_3":"Nyochaa","st_awaiting":"Na-eche nkwado","st_cancelled":"Akagbuola","st_completed":"Emechara","st_expired":"Agwụla","st_failed":"Ọ gaghị","st_open":"Mepere emepe","st_pending":"Na-eche","st_processing":"Ọ na-aga","st_reversed":"Ọ lọghachiri","upd":"Ụdị ọhụrụ dị njikere.","upd_b":"Melite"},"ha":{"about":"Moneva tana aiki a kan Interledger Test Network. Babu kuɗi na gaske da ke motsi.","ap_d":"Duba bayanan, sannan shigar da PIN ɗinka.","ap_exp":"Wannan hanyar ta ƙare. Nemi sabuwa daga bot ɗin Moneva.","ap_h":"Amince da biya","ap_nf":"Wannan hanyar ba ta da inganci.","ap_ok_wa":"An gama. Za ka iya komawa WhatsApp yanzu.","ap_pin_ok":"PIN ɗinka ya shirya. Koma WhatsApp don tura kuɗi.","ap_used":"An riga an yi amfani da wannan hanyar.","cancel":"Soke","done":"An gama","e_daily":"Ka kai iyakar yau.","e_gen":"Wani abu ya faru. Sake gwadawa.","e_insuf":"Kuɗinka bai isa wannan ba.","e_net":"Matsalar hanyar sadarwa. Duba haɗinka ka sake gwadawa.","e_oplimit":"An dakatar da cire kuɗin Interledger na ɗan lokaci. Sake gwadawa daga baya.","e_quote":"Farashin ya canza. Don Allah sake dubawa.","e_rl":"Gwaji ya yi yawa. Jira minti ɗaya.","hide":"Ɓoye kalmar sirri","inst_d":"Saka Moneva a allon gidanka. Yana buɗewa da sauri kuma yana aiki ko da hanyar sadarwa ba ta da ƙarfi.","inst_done":"An saka Moneva","inst_done_d":"Buɗe ta daga allon gidanka kowane lokaci.","inst_go":"Saka","inst_ing":"Ana saka Moneva...","inst_t":"Saka Moneva","later":"Ba yanzu ba","none":"Babu biya tukuna. Biyan da ka aika ko ka karɓa zai bayyana a nan.","off":"Ba ka kan intanet. Muna nuna shafukan da aka ajiye.","ok":"To","pick":"Zaɓi harshe","pin_conf":"Sake shigar da PIN ɗin","pin_locked":"Kurakurai sun yi yawa. An kulle PIN ɗinka na mintuna 30.","pin_mismatch":"PIN ɗin ba su yi daidai ba. Sake gwadawa.","pin_set_d":"Da waɗannan lambobi huɗu za ka amince da kowane biya. Kada ka faɗa wa kowa.","pin_set_h":"Ƙirƙiri PIN ɗin mu’amala","pin_weak":"Zaɓi PIN mai wuyar ganewa.","pin_wrong":"PIN ba daidai ba. Saura gwaji {n}.","r_fail":"Turawa ba ta tafi ba","r_ok":"Turawa ta yi nasara","r_proc":"Turawa tana kan hanya","r_refund":"Kuɗin sun koma asusunka.","rv_acct":"Asusu","rv_amt":"Adadi","rv_bank":"Banki","rv_fee":"Kuɗin aiki","rv_get":"Za su karɓa","rv_to":"Zuwa","rv_total":"Jimilla","rv_wallet":"Wallet","st_1":"Mai karɓa","st_2":"Adadi","st_3":"Dubawa","st_awaiting":"Ana jiran amincewa","st_cancelled":"An soke","st_completed":"An kammala","st_expired":"Ya ƙare","st_failed":"Bai yi nasara ba","st_open":"A buɗe","st_pending":"Ana jira","st_processing":"Ana aiki","st_reversed":"An dawo da shi","upd":"Sabon sigar ya shirya.","upd_b":"Sabunta"},"fr":{"about":"Moneva fonctionne sur l’Interledger Test Network. Aucun argent réel ne circule.","ap_d":"Vérifiez les détails, puis saisissez votre PIN.","ap_exp":"Ce lien a expiré. Demandez-en un nouveau au bot Moneva.","ap_h":"Valider le paiement","ap_nf":"Ce lien n’est pas valide.","ap_ok_wa":"C’est fait. Vous pouvez retourner sur WhatsApp.","ap_pin_ok":"Votre PIN est prêt. Retournez sur WhatsApp pour envoyer de l’argent.","ap_used":"Ce lien a déjà été utilisé.","cancel":"Annuler","done":"Terminé","e_daily":"Vous avez atteint le plafond du jour.","e_gen":"Une erreur est survenue. Réessayez.","e_insuf":"Votre solde ne suffit pas.","e_net":"Problème réseau. Vérifiez votre connexion et réessayez.","e_oplimit":"Les retraits Interledger sont en pause. Réessayez plus tard.","e_quote":"Le prix a changé. Vérifiez à nouveau.","e_rl":"Trop d’essais. Patientez une minute.","hide":"Masquer le mot de passe","inst_d":"Ajoutez Moneva à votre écran d’accueil. Ouverture rapide, même avec un réseau faible.","inst_done":"Moneva est installé","inst_done_d":"Ouvrez-le depuis votre écran d’accueil à tout moment.","inst_go":"Installer","inst_ing":"Installation de Moneva...","inst_t":"Installer Moneva","later":"Pas maintenant","none":"Aucun paiement pour le moment. Vos paiements envoyés et reçus apparaîtront ici.","off":"Vous êtes hors ligne. Écrans enregistrés affichés.","ok":"OK","pick":"Choisir la langue","pin_conf":"Saisissez le même PIN","pin_locked":"Trop d’essais. Votre PIN est bloqué pendant 30 minutes.","pin_mismatch":"Les PIN ne correspondent pas. Réessayez.","pin_set_d":"Ces 4 chiffres valideront chaque paiement. Ne les partagez jamais.","pin_set_h":"Créez votre PIN de transaction","pin_weak":"Choisissez un PIN plus difficile à deviner.","pin_wrong":"PIN incorrect. Encore {n} essais.","r_fail":"Virement échoué","r_ok":"Virement réussi","r_proc":"Virement en cours","r_refund":"L’argent est revenu sur votre solde.","rv_acct":"Compte","rv_amt":"Montant","rv_bank":"Banque","rv_fee":"Frais","rv_get":"Il reçoit","rv_to":"À","rv_total":"Total","rv_wallet":"Wallet","st_1":"Destinataire","st_2":"Montant","st_3":"Vérification","st_awaiting":"En attente d’approbation","st_cancelled":"Annulé","st_completed":"Terminé","st_expired":"Expiré","st_failed":"Échec","st_open":"Ouvert","st_pending":"En attente","st_processing":"En cours","st_reversed":"Retourné","upd":"Une nouvelle version est prête.","upd_b":"Mettre à jour"}};</script><script>/* Moneva shared app script: language, toasts, offline notice, install flow, updates.
+   Embedded in every page after its translations (window.MV_I18N). Pages talk to it through window.MV. */
+(()=>{
+const D=window.MV_I18N,LS=[['en','English'],['yo','Yorùbá'],['pcm','Pidgin'],['ig','Igbo'],['ha','Hausa'],['fr','Français']];
+const NM={en:'English',yo:'Yorùbá',pcm:'Nigerian Pidgin',ig:'Igbo',ha:'Hausa',fr:'Français'};
+const store={get:k=>{try{return localStorage.getItem(k)}catch{return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch{}},del:k=>{try{localStorage.removeItem(k)}catch{}}};
+let L=store.get('mv_lang');if(!D[L])L='en';
+const t=k=>(D[L]&&D[L][k])||D.en[k]||k;
+const tf=(k,v)=>t(k).replace(/\{(\w+)\}/g,(m,x)=>v&&v[x]!=null?v[x]:m);
+const GL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>';
+const SVG=p=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>';
+const X=SVG('<path d="M6 6l12 12M18 6L6 18"/>'),CK=SVG('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),SHARE=SVG('<path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>'),PLUS=SVG('<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/>');
+const MARK="<svg viewBox=\"0 0 40 42\" aria-hidden=\"true\"><defs><mask id=\"mvsh\"><rect width=\"40\" height=\"42\" fill=\"white\"/><path d=\"M10 10h12a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H13.6l-5.5 4.3c-.8.6-1.9 0-1.9-1V35A8 8 0 0 1 2 28V18a8 8 0 0 1 8-8z\" fill=\"black\" stroke=\"black\" stroke-width=\"5\" stroke-linejoin=\"round\"/></mask></defs><path d=\"M22 2h8a8 8 0 0 1 8 8v7a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8v-7a8 8 0 0 1 8-8z\" fill=\"#9DB8FF\" mask=\"url(#mvsh)\"/><path d=\"M10 10h12a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H13.6l-5.5 4.3c-.8.6-1.9 0-1.9-1V35A8 8 0 0 1 2 28V18a8 8 0 0 1 8-8z\" fill=\"#1F5EFF\"/><path d=\"M10 28V18.6l6 6.4 6-6.4V28\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>";
+
+function apply(){
+  document.documentElement.lang=L==='pcm'?'en':L;
+  document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
+  document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
+  document.querySelectorAll('[data-al]').forEach(e=>e.setAttribute('aria-label',t(e.dataset.al)));
+  document.querySelectorAll('.lcur').forEach(e=>e.textContent=e.dataset.full?(LS.find(a=>a[0]===L)||[0,L])[1]:L.toUpperCase());
+  document.querySelectorAll('.lo').forEach(b=>{const on=b.dataset.l===L;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on))});
+  dispatchEvent(new Event('langchange'));
+}
+function setLang(l,quiet){if(!D[l]||l===L&&quiet)return;L=l;store.set('mv_lang',l);apply();if(!quiet)dispatchEvent(new CustomEvent('langpick',{detail:l}))}
+addEventListener('storage',e=>{if(e.key==='mv_lang'&&D[e.newValue]){L=e.newValue;apply()}});
+
+// language menus: any element with class "lang" becomes a button + menu
+document.querySelectorAll('.lang').forEach(w=>{
+  w.innerHTML='<button class="lb" type="button" aria-haspopup="true" aria-expanded="false" data-al="pick">'+GL+'<span class="lcur"'+(w.dataset.full?' data-full="1"':'')+'></span></button><div class="lm hide" role="menu"><p data-i="pick"></p><div class="lgr">'+LS.map(a=>'<button class="lo" type="button" role="menuitemradio" data-l="'+a[0]+'"><i></i>'+a[1]+'</button>').join('')+'</div></div>';
+  const b=w.querySelector('.lb'),m=w.querySelector('.lm'),c=()=>{m.classList.add('hide');b.setAttribute('aria-expanded','false')};
+  b.onclick=e=>{e.stopPropagation();const o=m.classList.toggle('hide');b.setAttribute('aria-expanded',String(!o))};
+  m.onclick=e=>{const o=e.target.closest('.lo');if(o){setLang(o.dataset.l);c()}};
+  document.addEventListener('click',e=>{if(!w.contains(e.target))c()});document.addEventListener('keydown',e=>{if(e.key==='Escape')c()});
+});
+
+function toast(m){let e=document.getElementById('tst');if(!e){e=document.createElement('div');e.id='tst';e.setAttribute('role','status');document.body.appendChild(e)}e.textContent=m;e.className='on';clearTimeout(e._t);e._t=setTimeout(()=>e.className='',3600)}
+
+// offline notice
+const offline=()=>{let b=document.getElementById('mvoff');if(navigator.onLine){if(b)b.remove();return}if(!b){b=document.createElement('div');b.id='mvoff';b.setAttribute('role','status');b.dataset.i='off';document.body.appendChild(b)}b.textContent=t('off')};
+addEventListener('online',offline);addEventListener('offline',offline);
+
+/* ---------- Install flow ----------
+   Chrome, Edge and Android fire "beforeinstallprompt" only while the app is NOT installed,
+   so its presence is the most reliable "not installed yet" signal. iPhone has no prompt API:
+   we show Add to Home Screen steps instead. Buttons with [data-install] show only when install is possible. */
+const ua=navigator.userAgent,IOS=/iphone|ipad|ipod/i.test(ua)&&!window.MSStream;
+const standalone=()=>(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
+let dp=null,sheet=null,doneTimer=0;
+const installed=()=>standalone()||store.get('mv_installed')==='1';
+const canInstall=()=>!standalone()&&(!!dp||(IOS&&store.get('mv_installed')!=='1'));
+const refresh=()=>document.querySelectorAll('[data-install]').forEach(b=>b.classList.toggle('hide',!canInstall()));
+const closeSheet=()=>{if(sheet){sheet.remove();sheet=null}clearTimeout(doneTimer)};
+function render(state){
+  if(!sheet){sheet=document.createElement('div');sheet.className='sheet';sheet.setAttribute('role','dialog');sheet.setAttribute('aria-live','polite');document.body.appendChild(sheet)}
+  sheet.dataset.state=state;
+  const head='<button class="sh-x" type="button" aria-label="'+t('cancel')+'">'+X+'</button><div class="sh-h"><span class="sh-i">'+MARK+'</span><div><h3>'+t(state==='done'?'inst_done':'inst_t')+'</h3></div></div>';
+  let body='';
+  if(state==='ask')body='<p>'+t('inst_d')+'</p><div class="sh-r"><button class="btn ol" data-a="later" type="button">'+t('later')+'</button><button class="btn" data-a="go" type="button">'+t('inst_go')+'</button></div>';
+  if(state==='ios')body='<p>'+t('inst_d')+'</p><div class="ios"><div><b>1</b><span>Share '+SHARE+'</span></div><div><b>2</b><span>Add to Home Screen '+PLUS+'</span></div></div><div class="sh-r"><button class="btn ol" data-a="later" type="button">'+t('later')+'</button><button class="btn" data-a="iosok" type="button">'+t('ok')+'</button></div>';
+  if(state==='ing')body='<div class="sh-st"><span class="sh-sp"></span><p style="color:var(--ink);font-weight:500">'+t('inst_ing')+'</p></div><div class="sh-bar"><i></i></div>';
+  if(state==='done')body='<div class="sh-st"><span class="sh-ok">'+CK+'</span><p>'+t('inst_done_d')+'</p></div><div class="sh-r"><button class="btn" data-a="close" type="button">'+t('ok')+'</button></div>';
+  sheet.innerHTML=head+body;
+  sheet.onclick=async e=>{
+    const a=e.target.closest('[data-a],.sh-x');if(!a)return;const act=a.dataset.a||'later';
+    if(act==='later'){store.set('mv_pwa_dismiss',String(Date.now()));closeSheet()}
+    else if(act==='close'){closeSheet()}
+    else if(act==='iosok'){store.set('mv_pwa_dismiss',String(Date.now()));closeSheet()}
+    else if(act==='go'&&dp){const d=dp;render('ing');try{d.prompt();const c=await d.userChoice;dp=null;
+      if(c&&c.outcome==='accepted'){doneTimer=setTimeout(()=>markInstalled(),15000)}else{closeSheet();refresh()}}catch{closeSheet()}}
+  };
+  if(state!=='ing'){const f=sheet.querySelector('[data-a="go"],[data-a="close"],[data-a="iosok"]');if(f)f.focus({preventScroll:true})}
+}
+function markInstalled(){store.set('mv_installed','1');dp=null;refresh();clearTimeout(doneTimer);if(sheet)render('done');else toast(t('inst_done'))}
+function openInstall(){if(standalone())return;if(dp)render('ask');else if(IOS)render('ios')}
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;store.del('mv_installed');refresh();autoOpen()});
+addEventListener('appinstalled',markInstalled);
+document.addEventListener('click',e=>{const b=e.target.closest('[data-install]');if(b){e.preventDefault();openInstall()}});
+const WEEK=6048e5,dismissed=()=>Date.now()-(+store.get('mv_pwa_dismiss')||0)<WEEK;
+let autoT=0;function autoOpen(){if(autoT||document.body.dataset.noinstall!==undefined||!canInstall()||dismissed())return;autoT=setTimeout(()=>{if(canInstall()&&!sheet&&!document.querySelector('.mdl'))openInstall()},3500)}
+if(standalone())store.set('mv_installed','1');
+if(IOS)autoOpen();
+addEventListener('langchange',()=>{if(sheet)render(sheet.dataset.state)});
+
+/* ---------- Service worker and updates ---------- */
+if('serviceWorker' in navigator)addEventListener('load',async()=>{try{
+  const r=await navigator.serviceWorker.register('/sw.js',{scope:'/'});
+  const ask=w=>{if(!navigator.serviceWorker.controller||document.getElementById('mvupd'))return;const p=document.createElement('div');p.className='sheet';p.id='mvupd';p.setAttribute('role','dialog');
+    p.innerHTML='<div class="sh-h"><span class="sh-i">'+MARK+'</span><h3>'+t('upd')+'</h3></div><div class="sh-r"><button class="btn ol" type="button">'+t('later')+'</button><button class="btn" type="button">'+t('upd_b')+'</button></div>';
+    const [l,u]=p.querySelectorAll('button');l.onclick=()=>p.remove();u.onclick=()=>{u.classList.add('busy');w.postMessage('SKIP')};document.body.appendChild(p)};
+  if(r.waiting)ask(r.waiting);
+  r.addEventListener('updatefound',()=>{const w=r.installing;if(w)w.addEventListener('statechange',()=>{if(w.state==='installed')ask(w)})});
+  let rl=0;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!rl){rl=1;location.reload()}});
+  setInterval(()=>r.update().catch(()=>{}),36e5);
+}catch(e){console.warn('Moneva: service worker not registered',e)}});
+
+window.MV={t,tf,setLang,toast,names:NM,langs:LS,mark:()=>MARK,install:{open:openInstall,can:canInstall,installed},get lang(){return L}};
+apply();refresh();offline();
+})();
+</script><script>/* Moneva approval page. Opened from a single-use WhatsApp link: shows the transfer, takes the PIN, approves it.
+   The PIN is typed only here, never in the chat. Also used to create the PIN for accounts made on WhatsApp. */
+(()=>{const MV=window.MV,t=k=>MV.t(k),tf=(k,v)=>MV.tf(k,v),API='https://moneva.padeyeye-2200068.workers.dev',IC={"check": "<path d=\"M5 12.5l4.5 4.5L19 7.5\"/>", "x": "<path d=\"M6 6l12 12M18 6L6 18\"/>", "clock": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/>", "del": "<path d=\"M9 5h11a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H9l-6-7z\"/><path d=\"M12 10l4 4M16 10l-4 4\"/>", "lock": "<rect x=\"4.5\" y=\"10.5\" width=\"15\" height=\"10\" rx=\"2.5\"/><path d=\"M8 10.5V7.5a4 4 0 0 1 8 0v3\"/>", "chat": "<path d=\"M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z\"/>"};
+const $=s=>document.querySelector(s),el=(g,c,x)=>{const e=document.createElement(g);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e};
+const ico=n=>{const s=document.createElement('span');s.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+IC[n]+'</svg>';return s.firstChild};
+const naira=k=>'₦'+(Number(k||0)/100).toLocaleString('en-NG',{minimumFractionDigits:2,maximumFractionDigits:2});
+const asset=a=>{if(!a)return '';const v=Number(a.value)/10**Number(a.assetScale),s={USD:'$',EUR:'€',GBP:'£'}[a.assetCode];const x=v.toLocaleString('en-US',{minimumFractionDigits:Math.min(2,a.assetScale),maximumFractionDigits:a.assetScale});return s?s+x:x+' '+a.assetCode};
+const tail=a=>String(a||'').replace(/^https:\/\//,'$');
+const tok=new URLSearchParams(location.search).get('t')||'';
+const ERR={pin_locked:'pin_locked',pin_weak:'pin_weak',pin_format:'pin_weak',expired:'ap_exp',quote_expired:'e_quote',insufficient_funds:'e_insuf',daily_limit:'e_daily',rate_limited:'e_rl',not_found:'ap_nf',pin_exists:'ap_used',op_grant_missing:'e_oplimit'};
+const msg=e=>e&&e.code==='pin_wrong'?tf('pin_wrong',{n:e.x.left}):t(ERR[e&&e.code]||(e&&e.code==='network'?'e_net':'e_gen'));
+async function call(method,body){let r;try{r=await fetch(API+'/api/approvals/'+encodeURIComponent(tok),{method,headers:{'content-type':'application/json'},body:body?JSON.stringify(body):undefined})}catch{throw{code:'network'}}const j=await r.json().catch(()=>({}));if(!r.ok)throw{code:j.error,x:j};return j}
+function state(cls,icon,title,desc){const i=$('#api');i.className='mdi '+cls;i.replaceChildren(icon?ico(icon):'');$('#aph').textContent=title;$('#apd').textContent=desc||'';delete $('#aph').dataset.i;delete $('#apd').dataset.i}
+function summary(tr){const box=$('#aprv');box.replaceChildren();if(!tr)return;const to=tr.to||{};const L=[[t('rv_to'),to.name||tail(to.wallet)]];if(to.account)L.push([t('rv_acct'),to.account]);if(to.bankName)L.push([t('rv_bank'),to.bankName]);if(to.wallet)L.push([t('rv_wallet'),tail(to.wallet)]);
+  L.push([t('rv_amt'),naira(tr.amountKobo)],[t('rv_fee'),naira(tr.feeKobo)]);if(tr.fx&&tr.fx.receiveAmount)L.push([t('rv_get'),asset(tr.fx.receiveAmount)]);L.push([t('rv_total'),naira(tr.totalKobo),'big']);
+  L.forEach(([k,v,c])=>{const d=el('div','r '+(c||''));d.append(el('span','',k),el('b','',v));box.append(d)})}
+function pad(onPin){const box=$('#appad');box.replaceChildren();let v='',lock=false;const dots=el('div','dots'),p=el('div','pad');for(let i=0;i<4;i++)dots.append(el('i'));
+  const paint=()=>[...dots.children].forEach((d,i)=>d.classList.toggle('on',i<v.length));
+  const press=k=>{if(lock)return;if(k==='del'){v=v.slice(0,-1);paint();return}if(v.length>=4)return;v+=k;$('#ape').textContent='';paint();if(v.length===4){lock=true;dots.classList.add('wait');onPin(v,ctl)}};
+  ['1','2','3','4','5','6','7','8','9','','0','del'].forEach(k=>{if(!k){p.append(el('span'));return}const b=el('button',k==='del'?'pk dl':'pk');b.type='button';if(k==='del'){b.append(ico('del'));b.setAttribute('aria-label','Delete')}else b.textContent=k;b.onclick=()=>press(k);p.append(b)});
+  document.onkeydown=e=>{if(/^\d$/.test(e.key))press(e.key);else if(e.key==='Backspace')press('del')};box.append(dots,p);
+  const ctl={error(m){$('#ape').textContent=m;v='';lock=false;dots.classList.remove('wait');paint()},reset(){v='';lock=false;dots.classList.remove('wait');paint()},done(){box.replaceChildren();document.onkeydown=null}};return ctl}
+function result(tr){$('#ape').textContent='';if(!tr){state('ok','check',t('ap_pin_ok'),'');return}
+  const m={completed:['ok','check','r_ok','ap_ok_wa'],processing:['wt','clock','r_proc','ap_ok_wa'],failed:['er','x','r_fail','r_refund'],reversed:['er','x','st_reversed','r_refund']}[tr.status]||['wt','clock','r_proc','ap_ok_wa'];
+  state(m[0],m[1],t(m[2]),t(m[3]));summary(tr)}
+function create(info){let first='';state('lk','lock',t('pin_set_h'),t('pin_set_d'));
+  const c=pad(async(pin,ctl)=>{if(!first){if(/^(\d)\1{3}$/.test(pin)||['1234','4321','0123','2580'].includes(pin)){ctl.error(t('pin_weak'));return}first=pin;ctl.reset();state('lk','lock',t('pin_conf'),'');return}
+    if(pin!==first){first='';state('lk','lock',t('pin_set_h'),t('pin_set_d'));ctl.error(t('pin_mismatch'));return}
+    try{const r=await call('POST',{newPin:pin});ctl.done();result(r.transfer||null)}catch(e){first='';state('lk','lock',t('pin_set_h'),t('pin_set_d'));ctl.error(msg(e));if(['expired','not_found','pin_exists'].includes(e.code))ctl.done()}})}
+async function load(){if(!tok){state('er','x',t('ap_nf'));return}let info;try{info=await call('GET')}catch(e){state('er','x',msg(e));return}
+  try{if(info.lang&&!localStorage.getItem('mv_lang'))MV.setLang(info.lang,true)}catch{}
+  if(info.used){state('ok','check',t('ap_used'),t('ap_ok_wa'));summary(info.transfer);return}
+  if(info.expired){state('er','clock',t('ap_exp'),'');summary(info.transfer);return}
+  if(info.kind==='transfer'&&info.transfer&&info.transfer.status!=='awaiting'){result(info.transfer);return}
+  if(info.kind==='pin_setup'||!info.pinSet){create(info);summary(info.transfer);return}
+  state('lk','lock',t('ap_h'),t('ap_d'));summary(info.transfer);
+  pad(async(pin,ctl)=>{try{const r=await call('POST',{pin});ctl.done();result(r.transfer)}catch(e){ctl.error(msg(e));if(['expired','pin_locked','quote_expired','insufficient_funds','daily_limit'].includes(e.code))ctl.done()}})}
+addEventListener('langchange',()=>{});load()})();
+</script></body></html>
