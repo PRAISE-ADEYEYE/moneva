@@ -444,7 +444,7 @@ function acctModal(){const f=el('label','fld'),ip=el('div','inp'),inp=el('input'
 async function savePhone(p){await updateDoc(doc(db,'users',U.uid),{phone:p});P={...P,phone:p};try{localStorage.removeItem('mv_phone_pending')}catch{}}
 function phoneModal(){if(document.querySelector('.mdl'))return;const f=el('label','fld'),ip=el('div','inp'),pre=el('span','pre','+234'),inp=el('input'),fe=el('em','fe',t('e_phone'));inp.type='tel';inp.inputMode='tel';inp.autocomplete='tel-national';inp.placeholder='803 123 4567';ip.append(pre,inp);f.append(ip,fe);inp.oninput=()=>f.classList.remove('bad');
   const i=el('div','mdi ld');i.className='mdi';i.style.border='1px solid var(--ln)';i.append(ico('chat'));
-  const m=modal(t('ph_h'),[el('p','',t('ph_d')),f],[[t('cont'),'',async()=>{const p=phone(inp.value);if(!p){f.classList.add('bad');inp.focus();return}const b=m.r.querySelector('.btn');b.classList.add('busy');try{await savePhone(p);m.close();MV.toast(t('ph_saved'));draw()}catch{b.classList.remove('busy');fe.textContent=t('e_gen');f.classList.add('bad')}}]],{icon:i,lock:1,nofocus:1});setTimeout(()=>inp.focus(),60)}
+  const m=modal(t('ph_h'),[el('p','',t('ph_d')),f],[[t('cont'),'',async()=>{const p=phone(inp.value);if(!p){fe.textContent=t('e_phone');f.classList.add('bad');inp.focus();return}const b=m.r.querySelector('.btn');b.classList.add('busy');try{await savePhone(p);m.close();MV.toast(t('ph_saved'));draw()}catch(x){b.classList.remove('busy');if(x&&x.code==='permission-denied'){console.warn('Moneva: Firestore rules do not allow saving "phone" on users/{uid}. The number is kept on this device and saved once the rules allow it.');try{localStorage.setItem('mv_phone_pending',p)}catch{}P={...P,phone:p};m.close();draw()}else{fe.textContent=t('e_gen');f.classList.add('bad')}}}]],{icon:i,lock:1,nofocus:1});setTimeout(()=>inp.focus(),60)}
 /* ---------- setup checklist ---------- */
 function setup(){const box=$('#setup'),a=!!P.walletAddress,w=WA.linked||SKIP,f=TX.length>0,done=a&&w&&f;box.classList.toggle('hide',done||!TXL);if(done||!TXL)return;box.replaceChildren();
   const n=[a,w,f].filter(Boolean).length,h=el('div','sut');h.append(el('h3','',t('setup_h')),el('span','num',n+'/3'));const bar=el('div','bar'),i=el('i');i.style.width=Math.round(n/3*100)+'%';bar.append(i);box.append(h,el('p','hint',t('setup_d')),bar);
@@ -518,9 +518,9 @@ onAuthStateChanged(auth,async u=>{if(!u){location.replace('/auth/login/');return
   U=u;localStorage.setItem(K,String(Date.now()));try{SKIP=localStorage.getItem(SKK)==='1'}catch{}
   try{const r=doc(db,'users',u.uid),sn=await getDoc(r);if(!sn.exists())await setDoc(r,{name:(u.displayName||'').slice(0,80),email:u.email,lang:MV.lang,walletAddress:null,whatsapp:null,createdAt:serverTimestamp()});P=(await getDoc(r)).data()||{}}catch{P={}}
   if(P.lang&&P.lang!==MV.lang)MV.setLang(P.lang,true);$('#pn').value=P.name||u.displayName||'';$('#pe').value=u.email||'';
-  const pp=localStorage.getItem('mv_phone_pending');if(!P.phone&&pp){try{await savePhone(pp)}catch{}}
+  const pp=localStorage.getItem('mv_phone_pending');if(!P.phone&&pp){try{await savePhone(pp)}catch(x){console.warn('Moneva: phone not saved yet',x&&x.code)}}
   const qs=new URLSearchParams(location.search),pay=qs.get('pay');if(pay){history.replaceState(null,'','/dashboard/#hist');cur='hist'}else cur=location.hash.slice(1)||'home';
-  draw();loadWA();svc();loadAcct();if(pay)result(pay,qs.get('err'),qs.get('cancelled'));else if(!P.phone)setTimeout(phoneModal,400);
+  draw();loadWA();svc();loadAcct();if(pay)result(pay,qs.get('err'),qs.get('cancelled'));else if(!P.phone&&!localStorage.getItem('mv_phone_pending'))setTimeout(phoneModal,400);
   // live profile: a change made on WhatsApp (language, account, link) shows here at once
   onSnapshot(doc(db,'users',u.uid),s=>{const d=s.data();if(!d)return;const was=P.whatsapp;P=d;if(P.lang&&P.lang!==MV.lang)MV.setLang(P.lang,true);if(was!==P.whatsapp)loadWA();loadAcct();draw()});
   onSnapshot(query(collection(db,'users',u.uid,'transactions'),orderBy('createdAt','desc'),limit(50)),s=>{TX=s.docs.map(d=>({id:d.id,...d.data()}));TXL=true;draw()},()=>{TX=[];TXL=true;draw()});
@@ -530,5 +530,5 @@ $('#rf').onsubmit=async e=>{e.preventDefault();$('#re').textContent='';$('#ro').
 // profile
 $('#pf').onsubmit=async e=>{e.preventDefault();const n=$('#pn').value.trim().slice(0,80),raw=$('#pw').value.trim(),p=raw?phone(raw):null;$('#pr').textContent='';$('#po').classList.add('hide');
   if(raw&&!p){$('#pr').textContent=t('e_phone');return}const b=$('#pf .btn');b.classList.add('busy');
-  try{const d={name:n};if(p)d.phone=p;await updateDoc(doc(db,'users',U.uid),d);P={...P,...d};$('#po').classList.remove('hide');draw()}catch{$('#pr').textContent=t('e_gen')}b.classList.remove('busy')};
+  try{await updateDoc(doc(db,'users',U.uid),{name:n});P={...P,name:n};if(p&&p!==P.phone){await savePhone(p)}$('#po').classList.remove('hide');draw()}catch(x){if(x&&x.code==='permission-denied')console.warn('Moneva: Firestore rules refused this update');$('#pr').textContent=t('e_gen')}b.classList.remove('busy')};
 </script></body></html>
